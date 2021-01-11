@@ -9,7 +9,7 @@
 # its initialize method should receive the date, user , and text
 # have a method called summary that returns the first 10 words from the text (or the entire text if it is less than 10 words)
 #
-# Two blogs should be equal to eachother if they have the same user, date, and text
+# Two blogs should be equal to each other if they have the same user, date, and text
 # here is a partially filled out example of how to define the == operator:
 #      def ==(other)
 #        return self.date == other.date
@@ -64,3 +64,52 @@
 # date docs are at: http://ruby-doc.org/core/classes/Date.html
 # don't spend too much time worrying about them :)
 require 'date'
+
+class User
+  attr_accessor :username, :blogs
+  def initialize (username)
+    @username = username
+    @blogs = []
+  end
+
+  def add_blog(date, text)
+    new_blog = Blog.new(date, self, text)
+    blogs.push(new_blog).sort!
+    new_blog
+  end
+end
+
+class Blog
+
+  include Comparable
+
+  attr_accessor :date, :text, :user
+
+  def initialize (date, user, text)
+    @date = date
+    @user = user
+    @text = text
+  end
+
+  def <=>(other)
+    if date > other.date
+      -1
+    elsif date == other.date
+      0
+    else
+      1
+    end
+  end
+
+  def summary
+    text.split.take(10).join(' ')
+  end
+
+  def entry
+    "#{user.username} #{date}\n#{text}"
+  end
+
+  def ==(other)
+    (@user == other.user) && (date == other.date) && (text == other.text)
+  end
+end

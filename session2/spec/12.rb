@@ -1,3 +1,5 @@
+require_relative './../challenge/12_classes.rb'
+
 common_denominator_factorings = [
   [                         [5, 7, 17, 19],         [2, 2, 2, 5, 7, 7, 13, 17, 19],       [5, 7, 17, 19]],
   [                              [3, 3, 7],           [3, 5, 5, 7, 13, 19, 19, 19],               [3, 7]],

@@ -13,5 +13,3 @@ def odds_and_evens(string, return_odds)
   string.split('').each_with_index { |c, i| i.odd? ? odds << c : evens << c }
   return_odds ? odds : evens
 end
-
-p odds_and_evens('abcdefg', true)

@@ -1,4 +1,5 @@
 require_relative 'helper'
+require_relative './../challenge/13_classes_iterating_sorting.rb'
 
 # make the date readable for when it gets stuck in output
 class Date

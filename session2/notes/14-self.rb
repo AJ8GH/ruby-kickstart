@@ -2,15 +2,15 @@
 # of some object. Right now we're in the main object.
 
 # You can see what object you're in by looking at self.
-self # => main
+p self # => main
 
 class String
-  self # => String
+  p self # => String
 end
 
 class String
   def existential
-    self # => "abc"
+    p self # => "abc"
   end
 end
 "abc".existential
@@ -20,16 +20,15 @@ end
 # variables and your methods.
 
 class Example
-  self # => Example
+  p self # => Example
 
   @abc = 123
-  @abc # => 123
+  p @abc # => 123
 
   # These will all work, because they all invoke new on
   # Example. Explicitly in the first two cases, implicitly
   # in the third.
-  Example.new # => #<Example:0x00000100863818>
-  self.new    # => #<Example:0x000001008634f8>
-  new         # => #<Example:0x000001008631d8>
+  p Example.new # => #<Example:0x00000100863818>
+  p self.new    # => #<Example:0x000001008634f8>
+  p new         # => #<Example:0x000001008631d8>
 end
-
