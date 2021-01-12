@@ -3,3 +3,8 @@
 #
 # reverse_map(1, 2, 3) { |i| i * 2 }      # => [6, 4, 2]
 
+def reverse_map(*args)
+  output = []
+  args.each { |element| output << (yield element if block_given?) }
+  output.reverse!
+end

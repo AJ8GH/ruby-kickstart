@@ -1,3 +1,5 @@
+require_relative './../challenge/6_arguments'
+
 RSpec.describe 'match_maker' do |variable|
   when_true = [
     [[true  , true                ],[false]],

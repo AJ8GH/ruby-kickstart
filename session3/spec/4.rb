@@ -1,3 +1,5 @@
+require_relative './../challenge/4_hashes'
+
 RSpec.describe 'first_pos' do
   it 'is defined' do
     expect(method :first_pos).to be

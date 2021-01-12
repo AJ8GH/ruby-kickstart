@@ -1,3 +1,5 @@
+require_relative './../challenge/2_hashes'
+
 RSpec.describe 'staircase' do
   it 'is defined' do
     expect(method :staircase).to be

@@ -1,3 +1,5 @@
+require_relative './../challenge/5_blocks'
+
 RSpec.describe 'spiral_access' do
   def assert_yielded(ary_of_arys, expected)
     seen = []

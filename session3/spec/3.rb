@@ -1,3 +1,5 @@
+require_relative './../challenge/3_hashes'
+
 RSpec.describe 'word_count' do
   it 'is defined' do
     expect(method :word_count).to be

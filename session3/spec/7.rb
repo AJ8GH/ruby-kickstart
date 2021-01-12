@@ -1,3 +1,5 @@
+require_relative './../challenge/7_hashes'
+
 RSpec.describe 'HTMLTag' do
   it "generates \"<li style='color:#FF0000;'>baseball</li>\\n\" when given 'li' , 'baseball' , :multiline => false , :color => :red" do
     html = HTMLTag.new('li', 'baseball', :multiline => false, :color => :red).to_s.chomp

@@ -16,3 +16,22 @@
 #   order << i
 # end
 # order # => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+
+def spiral_access(arrays)
+  i = 0
+  arrays.each do |array|
+    array.each do |element|
+      if block_given?
+        if element = i + 1
+          yield element
+          i += 1
+        end
+      end
+    end
+  end
+end
+
+# solution using .flatten.sort.each methods:
+# def spiral_access(array)
+#   array.flatten.sort.each { |n| yield n if block_given? }
+# end

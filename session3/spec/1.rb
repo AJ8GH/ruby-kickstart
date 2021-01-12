@@ -1,3 +1,5 @@
+require_relative './../challenge/1_blocks.rb'
+
 RSpec.describe 'reverse_map' do
   it 'defined a reverse_map method' do
     expect(method :reverse_map).to be

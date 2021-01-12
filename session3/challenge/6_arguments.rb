@@ -17,3 +17,8 @@
 # match_maker true,  true,  true, true, nil     # => [false, true]
 # match_maker true,  true,  true, 0, nil        # => [false, true]
 
+def match_maker(*args)
+  ary = []
+  args.each_with_index { |v, i| !!v == !!args[i + 1] ? ary << false : ary << true if i.odd? }
+  args[0] ? ary : ary.map { |e| !e }
+end

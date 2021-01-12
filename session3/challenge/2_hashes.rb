@@ -8,3 +8,9 @@
 # staircase 4  # => {1 => [], 3 => [2]}
 # staircase 5  # => {1 => [], 3 => [2], 5 =>[2, 4]}
 
+def staircase(n)
+  hash = {}
+  keys = [*1..n].select { |n| n.odd? }
+  keys.each { |key| hash[key] = [*1..key].select { |n| n.even? } }
+  hash
+end
