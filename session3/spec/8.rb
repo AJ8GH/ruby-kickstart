@@ -1,3 +1,5 @@
+require_relative './../challenge/8_blocks'
+
 RSpec.describe 'Person (example: prince)' do
   before :each do
     @artist = Person.new :name => 'Prince' do |person|

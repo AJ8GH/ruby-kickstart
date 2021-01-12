@@ -28,8 +28,10 @@ class HTMLTag
   # if the font is specified, we can return the style
   # if not, we return nil. And nil.to_s is the empty String
   def style
-    return nil unless options[:font]
-    "style='font-family:#{font}'"
+    if options[:font]
+      "style='font-family:#{font}'"
+    elsif options[:color]
+      "style='color:#{color}'"
   end
 
   # convert our HTMLTag to a String (in this case, it is represented as HTML)

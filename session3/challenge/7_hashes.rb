@@ -26,22 +26,22 @@
 
 class HTMLTag
   FONTS = {
-    :serif      => '"Times New Roman", "Georgia"',
-    :sans_serif => '"Arial", "Verdana"',
-    :monospace  => '"Courier New", "Lucida Console"'
+    serif:      '"Times New Roman", "Georgia"',
+    sans_serif: '"Arial", "Verdana"',
+    monospace:  '"Courier New", "Lucida Console"'
   }
 
   COLORS = {
-    red: '#FF0000',
+    red:   '#FF0000',
     green: '#00FF00',
-    blue: '#0000FF'
+    blue:  '#0000FF'
   }
 
   attr_accessor :name, :innerHTML, :options
 
   # options: :multiline should be true or false
-  def initialize(name, innerHTML, options)
-    @name, @innerHTML, @options = name, innerHTML, {}
+  def initialize(name, innerHTML, options={})
+    @name, @innerHTML, @options = name, innerHTML, options
   end
 
   def font
@@ -54,8 +54,15 @@ class HTMLTag
   end
 
   def style
-    return nil unless options[:font]
-    "style='font-family:#{font}"
+    if options[:font] && options[:color]
+      "style='font-family:#{font};color:#{color};'"
+    elsif options[:color]
+      "style='color:#{color};' "
+    elsif options[:font]
+      "style='font-family:#{font}' '"
+    else
+      nil
+    end
   end
 
   def to_s
@@ -64,5 +71,4 @@ class HTMLTag
     "#{innerHTML.chomp}#{line_end}"  \
     "</#{name}>\n"
   end
-
 end

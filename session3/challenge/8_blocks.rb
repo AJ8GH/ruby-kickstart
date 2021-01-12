@@ -26,16 +26,17 @@
 
 
 class Person
-  attr_accessor :name, :age, :quote
 
-  def initialize(&initializer)
+  attr_accessor :age, :name, :quote
+
+  def initialize(options = Hash.new, &initializer)
+    @name = options[:name]
     @initializer = initializer
     initializer.call self
   end
 
-  def initialize
-
   def reinit
     @initializer.call self
   end
+
 end
